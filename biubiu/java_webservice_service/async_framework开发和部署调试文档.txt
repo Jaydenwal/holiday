@@ -1,0 +1,22 @@
+async_framework开发和部署调试文档
+
+1.java_webservice_server
+使用webservice技术发布统一数据访问，数据访问中间件
+
+2.过渡测试:ClientWS.java是作为一个java的测试来测试java_webservice_server功能。
+
+
+3.ServerThree--ServerThreadThree  去访问java_webservice_server
+  //jdk自带的线程池  创建一个定长线程池，可控制线程最大并发数
+   ExecutorService fixedThreadPool = Executors.newFixedThreadPool(2);
+  ServerThreadThree去请求java_webservice_server数据
+  下发数据给ClientApplication
+  
+  注意对线程池，消息的识别和应答
+
+4.ClientApplication(java)做为客户端连接ServerThree
+
+
+--python作为客户端
+
+--android作为客户端

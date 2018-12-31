@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+* 
+{
+	margin: 0px;
+	font-family: 楷体;
+	font-size: 0.8rem;
+}
+			
+body 
+{
+	width: 100%;
+	height: 100vh;
+	background-color: #F5DEB3;
+}
+			
+.header 
+{
+	width: 100%;
+	height: 8%;
+	background-color:palegoldenrod;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.base 
+{
+	width: 100%;
+	height: 84%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	background-image:url(../img/hhr.jpg);
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+}
+.cell
+{
+	width: 80px;
+	height: 80px;
+	border: 2px solid black;
+	margin: 5px;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.tupian
+{
+    width:50px;
+    height:50px;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+}
+.footer 
+{
+	width: 100%;
+	height: 8%;
+	background-color: palegoldenrod;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.cell1 {
+		width: 20%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center; 	
+	  }
+.ll{
+   width:60%;
+   height:60%;
+}
+			
+</style>
+</head>
+<body>
+<div class="header">
+         侯鸿芮大屁蹲系统
+</div>
+<div class="base">
+		  
+
+</div>
+<div class="footer">
+                <div class="cell1">
+					   <img class="ll"  src="../img/qq.png" />
+					   首页
+				</div>
+				<div class="cell1">
+					 <img class="ll"  src="../img/qq.png" />
+					  服务
+				</div>
+				<div class="cell1">
+					 <img class="ll" src="../img/qq.png" />
+					 案例
+				</div>
+				<div class="cell1">
+					 <img class="ll" src="../img/qq.png" />
+					我的
+				</div>
+</div>
+</body>
+<script type="text/javascript">
+  var  baseObj= document.getElementsByClassName("base")[0];
+function UrlSearch()
+{
+	
+	//decodeURI location.search-->?之后的参数
+	var url =decodeURI(location.search);
+	alert(url);
+	
+	var  str=url.substr(url.indexOf("=")+1);
+    alert(str);
+    
+    //字符串转换成json
+    var datas=JSON.parse(str);
+    
+    alert(datas.length);
+    
+    datas.forEach(function(value,index){
+	
+	    //alert(value["tname"]);
+	   var  divObj= document.createElement("div");
+	   divObj.className="cell";
+	   divObj.setAttribute("onclick","forward('"+value["turl"]+"')")
+	  
+	   baseObj.appendChild(divObj);
+	   ///alert(value["imgpath"]);
+	   var imgObj=document.createElement("img");
+	   imgObj.className="tupian";
+	   imgObj.setAttribute("src",value["imgpath"]);
+	   divObj.innerText=value["tname"];
+	   divObj.appendChild(imgObj);
+    });
+}
+UrlSearch();
+function forward(id)
+{
+    window.location.href=id;
+}
+
+
+
+
+</script>
+</html>

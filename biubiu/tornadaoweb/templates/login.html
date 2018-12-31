@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+  <form method="post" action="user?action=login">
+      <input type="text" name="username" placeholder="请输入用户姓名:">
+      <input type="text" name="userpwd" placeholder="请输入用户密码:">
+      <input type="submit" value="用户登录">
+      <input type="submit" formaction="user?action=register" value="用户注册">
+  </form>
+  <span>
+      {{failmsg or ''}}
+  </span>
+</body>
+</html>
